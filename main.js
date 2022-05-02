@@ -5,6 +5,7 @@ let draws = 0;
 let loses = 0;
 let playerName = "";
 let letters = /^[a-zA-Z\s]*$/;
+let setWords = "rock"|| "paper" || "scissors" || "spock"|| "lizard";
 /*
 while (playerName.length > 10 || !letters.test(playerName)){
     alert("Maximum 10 characters or you are not using letters only! Try again...")
@@ -24,10 +25,11 @@ while (true) {
   else if (letters.test(playerName) == false) alert("Use letters only!");
   else if (playerName[0].toUpperCase() != playerName[0])
     alert("Your first character must be upper case.");
-}
+} 
+
 
 while (playAgain == true) {
-  let playerMove = prompt("Enter your move.");
+  let playerMove = prompt("Enter your move to play - rock, paper, scissors, lizard or spock!");
   let computerChoice = ["rock", "paper", "scissors", "spock", "lizard"];
 
   let randomItem =
@@ -42,10 +44,10 @@ while (playAgain == true) {
     if (playerMove === "rock" && computerMove === "rock") {
       return 0;
     }
-    if (playerMove === "rock" && computerMove === "paper") {
+    if (playerMove === "rock" && (computerMove === "paper" || computerMove === "spock")) {
       return -1;
     }
-    if (playerMove === "paper" && computerMove === "scissors") {
+    if (playerMove === "paper" && (computerMove === "scissors" || computerMove === "lizard")) {
       return -1;
     }
     if (playerMove === "paper" && computerMove === "rock") {
@@ -57,22 +59,17 @@ while (playAgain == true) {
     if (playerMove === "scissors" && computerMove === "scissors") {
       return 0;
     }
-    if (playerMove === "scissors" && computerMove === "rock") {
+    if (playerMove === "scissors" && (computerMove === "rock" || computerMove === "spock")) {
       return -1;
     }
     if (playerMove === "scissors" && computerMove === "paper") {
       return +1;
     }
-    if (
-      playerMove === "spock" &&
-      (computerMove === "rock" || computerMove === "scissors")
-    ) {
+    if (playerMove === "spock" &&(computerMove === "rock" || computerMove === "scissors")) {
       return +1;
     }
     if (
-      playerMove === "spock" &&
-      (computerMove === "paper" || computerMove === "lizard")
-    ) {
+      playerMove === "spock" &&(computerMove === "paper" || computerMove === "lizard")) {
       return -1;
     }
     if (playerMove === "spock" && computerMove === "spock") {
